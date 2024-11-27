@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang Chủ</title>
+    <link rel="stylesheet" type="text/css" href="./css/sanpham.css">
+    <script src="./script/script.js"></script>
+    <script src="./script/sanpham.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.6/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"> 
+
+</head>
+<body>
+    <header>
+        <div class="dieuhuongnav">
+            <nav class="navbar navbar-expand-md custom-navbar">
+                <a class="navbar-brand" href="javascript:void(0)">
+                    <div class="logo">
+                        <img src="../img/z5885112990692_b899c38d746190aa918a61ccf526a7df.jpg" alt="">
+                    </div>
+                </a>
+                <button class="navbar-toggler bg-white" type="button" data-toggle="collapse" data-target="#mynavbar">
+                  <span class="navbar-toggler-icon"><i class="fa-solid fa-bars"></i></span>
+              </button>
+                <div class="collapse navbar-collapse" id="mynavbar">
+                    <div class="dieuhuong">
+                        <ul class="navbar-nav me-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="Trangchu.html">Trang Chủ</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="sanpham.html">Sản Phẩm</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="javascript:void(0)">Giới Thiệu</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="javascript:void(0)">Hỏi Đáp</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <form class="d-flex ml-auto">
+                        <input class="form-control me-2" type="text" placeholder="Search">
+                        <button class="btn btn-primary" type="button">Search</button>
+                    </form>
+                </div>
+            </nav> 
+        </div>
+    </header>
+    <article>
+        <div class="container mx-auto py-10">
+            <h2 class="text-3xl font-bold text-center mb-8">HÀNG MỚI VỀ</h2>
+            <div id="products" class="grid grid-cols-1 md:grid-cols-4 gap-8 pt-10"></div>
+              <!-- hiển thị -->
+              </div>
+              
+        </div>
+        <section class="relative  bg-cover " style="background-image: url(../img/123.png);">
+            <div class="flex flex-col items-center justify-center min-h-screen p-8 md:flex-row ml-[200px]">
+                
+                <div class="max-w-md text-center md:text-left md:mr-40">
+                  <h1 class="text-5xl font-roboto text-black ">Thư viện cửa hàng trực tuyến của bạn!</h1>
+                  <p class="mt-4 text-3xl text-black font-roboto">Khám phá
+                    cửa hàng trực tuyến
+                    Pottery & Van Mien</p>
+                    <button class="intro-button bg-gray-500 text-white font-semibold py-2 px-6 rounded-lg shadow-md hover:bg-blue-600 transition-colors duration-300">
+                        Tìm Hiểu Thêm
+                      </button>
+                      
+                </div>
+                <div class="gap-2 mt-8 mt-[100px] w-[400px] max-w-[400px]">
+                    <img src="../img/11111.png" alt="My Image" class="transform hover:scale-125 hover:z-10 transition-all duration-300 object-contain">
+                </div>
+                
+              </div>
+                </div>
+            </div>
+        </section>
+        <div class="container mx-auto py-10">
+            <h2 class="text-3xl font-bold text-center mb-8">Tất Cả Sản Phẩm</h2>
+            <div class=" grid grid-cols-1 md:grid-cols-4 gap-8" id="product2">
+                <!-- hiện -->
+            </div>
+        </div>
+        <div class="flex justify-center mt-8">
+            <nav class="inline-flex items-center -space-x-px">
+                
+                <a href="#" class="py-2 px-4 text-sm font-semibold text-blue-600 bg-white border border-gray-300 rounded-l-lg hover:bg-blue-50 hover:text-blue-800 transition-colors">Trước</a>
+                <a href="#" class="py-2 px-4 text-sm font-semibold text-gray-500 bg-white border-t border-b border-gray-300 hover:bg-blue-100 hover:text-blue-600 transition-all">1</a>
+                <a href="#" class="py-2 px-4 text-sm font-semibold text-gray-500 bg-white border-t border-b border-gray-300 hover:bg-blue-100 hover:text-blue-600 transition-all">2</a>
+                <a href="#" class="py-2 px-4 text-sm font-semibold text-gray-500 bg-white border-t border-b border-gray-300 hover:bg-blue-100 hover:text-blue-600 transition-all">3</a>
+                <a href="#" class="py-2 px-4 text-sm font-semibold text-blue-600 bg-white border border-gray-300 rounded-r-lg hover:bg-blue-50 hover:text-blue-800 transition-colors">Tiếp theo</a>
+            </nav>
+        </div>
+    </article>
+    <div class="cach" style="height: 100px;" ></div>
+    <footer class="bg-gray-900 text-white py-8">
+        <div class="border-t border-gray-700 mt-8 py-8">
+            <div class="container mx-auto grid grid-cols-3 gap-4">
+                <div>
+                    <img 
+                    src="./img/z5885112990692_b899c38d746190aa918a61ccf526a7df.jpg" alt="Logo" 
+                    class="mb-2 w-24 block hover:scale-150 transition-transform duration-500">
+                    <p class="text-gray-400 mb-4">Có rất nhiều biến thể của các đoạn văn trông có vẻ đáng tin cậy, đủ chỉ một chút.</p>
+                    <div class="flex gap-2">
+                        <img src="./img/link.png" alt="PayPal">
+                        <img src="./img/link(1).png" alt="MasterCard">
+                        <img src="./img/Link(2).png" alt="Visa">
+                    </div>
+                </div>
+                <div>
+                    <h3 class="font-semibold mb-4">Liên kết nhanh</h3>
+                    <ul class="text-gray-400 space-y-2">
+                        <li><a href="#" class="hover:text-white">Về Chúng Tôi</a></li>
+                        <li><a href="#" class="hover:text-white">Chúng Tôi Làm Gì</a></li>
+                        <li><a href="#" class="hover:text-white">Gặp Gỡ Đội Ngũ</a></li>
+                        <li><a href="#" class="hover:text-white">Trang Câu Hỏi Thường Gặp</a></li>
+                        <li><a href="#" class="hover:text-white">Liên Hệ Chúng Tôi</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-semibold mb-4">Tìm cửa hàng</h3>
+                    <ul class="text-gray-400 space-y-2">
+                        <li>Thanh Hà - Thanh Hà - Hải Dương</li>
+                        <li>FPT Polytechnic Đà Nẵng</li>
+                        <li>+0905683875</li>
+                    </ul>
+                    <div class="flex gap-3 mt-4">
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-google-plus"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bg-gray-800 py-4 text-center">
+            <p class="text-gray-500">Copyright © 2019 Pottery & Van Mien. All rights reserved.</p>
+        </div>
+    </footer>

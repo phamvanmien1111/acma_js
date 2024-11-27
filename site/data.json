@@ -1,0 +1,234 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Minh Long Bình Hoa Hoàng Kim",
+      "price": "1,600,000 VND",
+      "image_url": "https://product.hstatic.net/200000532849/product/442311522v-1-sm_15467de01d8348b6bf5973d8d4e0a274_large.png"
+    },
+    {
+      "id": 2,
+      "name": "Bộ đồ ăn 10 người A 49 SIP",
+      "price": "2,500,000 VND",
+      "image_url": "https://product.hstatic.net/200000532849/product/312341bmn-2-sm_bab618c31b6b422ca358ef2d25e76633_large.png"
+    },
+    {
+      "id": 3,
+      "name": "Bộ đồ ăn 37 sản phẩm",
+      "price": "6,000,000 VND",
+      "image_url": "https://product.hstatic.net/200000532849/product/441311bmnv-1-sm_c2ea215a5ce3458eb9c441844a8d0aeb_large.png"
+    },
+    {
+      "id": 4,
+      "name": "Bộ đồ ăn 37 sản phẩm",
+      "price": "6,000,000 VND",
+      "image_url": "https://product.hstatic.net/200000532849/product/441311bmnv-1-sm_c2ea215a5ce3458eb9c441844a8d0aeb_large.png"
+    },
+    {
+      "id": 5,
+      "name": "Bộ đồ ăn 37 sản phẩm",
+      "price": "6,000,000 VND",
+      "image_url": "https://product.hstatic.net/200000532849/product/441311bmnv-1-sm_c2ea215a5ce3458eb9c441844a8d0aeb_large.png"
+    },
+    {
+      "id": 6,
+      "name": "Bộ đồ ăn 37 sản phẩm",
+      "price": "6,000,000 VND",
+      "image_url": "https://product.hstatic.net/200000532849/product/441311bmnv-1-sm_c2ea215a5ce3458eb9c441844a8d0aeb_large.png"
+    },
+    {
+      "id": 7,
+      "name": "Bộ đồ ăn 37 sản phẩm",
+      "price": "6,000,000 VND",
+      "image_url": "https://product.hstatic.net/200000532849/product/441311bmnv-1-sm_c2ea215a5ce3458eb9c441844a8d0aeb_large.png"
+    },
+    {
+      "id": 8,
+      "name": "Bộ đồ ăn 37 sản phẩm",
+      "price": "6,000,000 VND",
+      "image_url": "https://product.hstatic.net/200000532849/product/441311bmnv-1-sm_c2ea215a5ce3458eb9c441844a8d0aeb_large.png"
+    },
+    {
+      "id": 9,
+      "name": "Bộ đồ ăn 37 sản phẩm",
+      "price": "6,000,000 VND",
+      "image_url": "https://product.hstatic.net/200000532849/product/441311bmnv-1-sm_c2ea215a5ce3458eb9c441844a8d0aeb_large.png"
+    }
+  ],
+  "product1": [
+    {
+      "image": "../../img/Group 37.png",
+      "altText": "Sản phẩm gốm 1",
+      "title": "ẤM THIÊN LONG",
+      "description": "Từ các sản phẩm thủ công đến những món đồ độc đáo.",
+      "button": {
+        "text": "Thêm Giỏ Hàng",
+        "action": "addToCart"
+      }
+    },
+    {
+      "image": "../../img/Group 37.png",
+      "altText": "Sản phẩm gốm 1",
+      "title": "ẤM THIÊN LONG",
+      "description": "Từ các sản phẩm thủ công đến những món đồ độc đáo.",
+      "button": {
+        "text": "Thêm Giỏ Hàng",
+        "action": "addToCart"
+      }
+    },
+    {
+      "image": "../../img/Group 37.png",
+      "altText": "Sản phẩm gốm 1",
+      "title": "ẤM THIÊN LONG",
+      "description": "Từ các sản phẩm thủ công đến những món đồ độc đáo.",
+      "button": {
+        "text": "Thêm Giỏ Hàng",
+        "action": "addToCart"
+      }
+    },
+    {
+      "image": "../../img/Group 37.png",
+      "altText": "Sản phẩm gốm 1",
+      "title": "ẤM THIÊN LONG",
+      "description": "Từ các sản phẩm thủ công đến những món đồ độc đáo.",
+      "button": {
+        "text": "Thêm Giỏ Hàng",
+        "action": "addToCart"
+      }
+    }
+  ],
+  "product2": [
+    {
+      "id": 1,
+      "image": "../../img/image 28.png",
+      "alt": "Gốm OBC",
+      "name": "Ly sứ dưỡng sinh 0.48 L (K2) + nắp ống hút - Đại dương",
+      "title": "Gốm OBC",
+      "price": "1,000,000 VNĐ",
+      "description": " <strong>NHỮNG TÍNH NĂNG VƯỢT TRỘI CỦA SẢN PHẨM:</strong> An toàn cho sức khỏe với nguyên liệu sứ tinh tuyển, không tiết ra chất độc hại; không làm biến đổi hương vị thức uống nhờ nung ở nhiệt độ cao; tiện lợi, bền chắc với nắp đậy kín, lỗ cắm ống hút, men sáng bóng; kiểu dáng trẻ trung, hiện đại, hoa văn tinh tế; giữ nhiệt và chịu nhiệt tốt, giữ độ nóng/lạnh của thức uống; thân thiện môi trường với chất liệu sứ tái sử dụng, giảm rác thải.<br> <strong>THÔNG TIN CHI TIẾT SẢN PHẨM:</strong> Dung tích 480ml; kích thước: 15.5cm (cao) x 10.4cm (đường kính nắp) x 5.3cm (đường kính đáy); trọng lượng: 439gr.",
+      "link": "chtietsanpham.html",
+      "image_mota": "../../img/214889479h_78f318c6cc3644fc84b254c5b996788c_grande.png"
+    },
+    {
+      "id": 2,
+      "image": "../../img/image 29.png",
+      "alt": "Tấm Mạ Vàng",
+      "name": "NAKANO",
+      "title": "Tấm Mạ Vàng",
+      "price": "1,000,000 VNĐ",
+      "link": "#"
+    },
+    {
+      "id": 3,
+      "image": "../../img/image.png",
+      "alt": "Cốc Xanh",
+      "name": "NAKANO",
+      "title": "Cốc Xanh",
+      "price": "1,000,000 VNĐ",
+      "link": "#"
+    },
+    {
+      "id": 4,
+      "image": "../../img/Link → product-24-360x360.jpg.png",
+      "alt": "Tấm HEID",
+      "name": "NAKANO",
+      "title": "Tấm HEID",
+      "price": "1,000,000 VNĐ",
+      "link": "#"
+    },
+    {
+      "id": 5,
+      "image": "../../img/Link → product-22-360x360.jpg.png",
+      "alt": "Cốc Cà Phê",
+      "name": "NAKANO",
+      "title": "Cốc Cà Phê",
+      "price": "1,000,000 VNĐ",
+      "link": "#"
+    },
+    {
+      "id": 6,
+      "image": "../../img/Link → product-34-360x360.jpg.png",
+      "alt": "White Leaf Plate",
+      "name": "NAKANO",
+      "title": "White Leaf Plate",
+      "price": "1,000,000 VNĐ",
+      "link": "#"
+    },
+    {
+      "id": 7,
+      "image": "../../img/image 29.png",
+      "alt": "Tấm Mạ Vàng",
+      "name": "NAKANO",
+      "title": "Tấm Mạ Vàng",
+      "price": "1,000,000 VNĐ",
+      "link": "#"
+    },
+    {
+      "id": 8,
+      "image": "../../img/image.png",
+      "alt": "Cốc Xanh",
+      "name": "NAKANO",
+      "title": "Cốc Xanh",
+      "price": "1,000,000 VNĐ",
+      "link": "#"
+    }
+  ],
+  "product3": [
+    {
+      "name": "Gốm OBC",
+      "brand": "NAKANO",
+      "image": "../../img/image 28.png",
+      "price": "1,000,000 VNĐ",
+      "link": "chtietsanpham.html"
+    },
+    {
+      "name": "Tấm Mạ Vàng",
+      "brand": "NAKANO",
+      "image": "../../img/image 29.png",
+      "price": "1,000,000 VNĐ",
+      "link": ""
+    },
+    {
+      "name": "Cốc Xanh",
+      "brand": "NAKANO",
+      "image": "../../img/image.png",
+      "price": "1,000,000 VNĐ",
+      "link": ""
+    },
+    {
+      "name": "Tấm HEID",
+      "brand": "NAKANO",
+      "image": "../../img/Link → product-24-360x360.jpg.png",
+      "price": "1,000,000 VNĐ",
+      "link": ""
+    },
+    {
+      "name": "Cốc Cà Phê",
+      "brand": "NAKANO",
+      "image": "../../img/Link → product-22-360x360.jpg.png",
+      "price": "1,000,000 VNĐ",
+      "link": ""
+    },
+    {
+      "name": "White Leaf Plate",
+      "brand": "NAKANO",
+      "image": "../../img/Link → product-34-360x360.jpg.png",
+      "price": "1,000,000 VNĐ",
+      "link": ""
+    },
+    {
+      "name": "Tấm Mạ Vàng",
+      "brand": "NAKANO",
+      "image": "../../img/image 29.png",
+      "price": "1,000,000 VNĐ",
+      "link": ""
+    },
+    {
+      "name": "Cốc Xanh",
+      "brand": "NAKANO",
+      "image": "../../img/image.png",
+      "price": "1,000,000 VNĐ",
+      "link": ""
+    }
+  ]
+}

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang Chủ</title>
+    <link rel="stylesheet" type="text/css" href="./css/trangchu.css">
+    <script src="./script/script.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.6/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@^3.0/dist/tailwind.min.css" rel="stylesheet">
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+
+</head>
+<body>
+    <header>
+        <div class="dieuhuongnav">
+            <nav class="navbar navbar-expand-md custom-navbar">
+                <a class="navbar-brand" href="javascript:void(0)">
+                    <div class="logo">
+                        <img src="../img/z5885112990692_b899c38d746190aa918a61ccf526a7df.jpg" alt="">
+                    </div>
+                </a>
+                <button class="navbar-toggler bg-white" type="button" data-toggle="collapse" data-target="#mynavbar">
+                  <span class="navbar-toggler-icon"><i class="fa-solid fa-bars"></i></span>
+              </button>
+                <div class="collapse navbar-collapse" id="mynavbar">
+                    <div class="dieuhuong">
+                        <ul class="navbar-nav me-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="javascript:void(0)">Trang Chủ</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="sanpham.html">Sản Phẩm</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="javascript:void(0)">Giới Thiệu</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="javascript:void(0)">Hỏi Đáp</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <form class="d-flex ml-auto">
+                        <input class="form-control me-2" type="text" placeholder="Search">
+                        <button class="btn btn-primary" type="button">Search</button>
+                    </form>
+                </div>
+            </nav> 
+        </div>
+    </header>
+    <article>
+      <div class="main-container">
+        <aside class="sidebar">
+            <h3>Danh Mục Sản Phẩm</h3>
+            <ul>
+                <li><a href="#">Bình Hoa</a></li>
+                <li><a href="#">Bộ Đồ Ăn</a></li>
+                <li><a href="#">Ấm Chén</a></li>
+                <li><a href="#">Ly Cốc</a></li>
+                <li><a href="#">Đồ Trang Trí</a></li>
+            </ul>
+        </aside>
+        <main class="content">
+            <section class="intro">
+              <div class="intro-content">
+                  <img src="../img/slide.png" alt="" >
+                  <div class="text-overlay">
+                      <h1>Câu Chuyện Triệu Chữ Tâm</h1>
+                      <p>Thương hiệu NAKANO với sứ mệnh lan tỏa văn hóa trà Việt đến với người yêu trà toàn cầu.</p>
+                      <button class="intro-button">Tìm Hiểu Thêm</button>
+                  </div>
+              </div>
+          </section>
+            <section class="new-products">
+                <h2>SẢN PHẨM NAKANO MỚI NHẤT</h2>
+                <div class="slider">
+                  <button class="prev-btn" onclick="prevSlide()">❮</button>
+                <div class="product-list" id="sanpham">
+              </div>
+              <button class="next-btn" onclick="nextSlide()">❯</button>
+                </div>
+            </section>
+            <div class="cach" style="height: 100px;"></div>
+            <section class="relative text-black py-8 px-4 bg-cover bg-center" style="background-image: url('../img/1234.png');">
+                <div class="flex items-center justify-center rounded bg-gray-900 bg-opacity-60" style="height: 400px;">
+                    <div class="flex space-x-6">
+                        <div class="relative ">
+                        </div>
+                        <div class="flex items-center justify-end space-y-4 text-left ml-0 pr-[20px] ">
+                            <div class="w-[400px] space-y-4 text-center">
+                                <h2 class="text-xl font-bold text-white">Khám phá cửa hàng trực tuyến Pottery & Van Mien</h2>
+                                <ul class="space-y-2 text-white ">
+                                    <li><strong>Tìm Kiếm Nhanh:</strong> Tìm các sản phẩm đồ gốm yêu thích của bạn trong tích tắc với công cụ tìm kiếm thông minh.</li>
+                                    <li><strong>Lưu Trữ Cá Nhân:</strong> Tạo danh sách yêu thích, lưu các món đồ gốm để xem lại sau.</li>
+                                    <li><strong>Đánh Giá & Bình Luận:</strong> Kết nối cộng đồng và chia sẻ cảm nhận về các sản phẩm đồ gốm.</li>
+                                </ul>
+                                <button class="px-4 py-2 mt-4 text-white bg-black rounded-lg hover:bg-blue-800">Trải nghiệm ngay</button>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            
+                <div class="flex justify-center space-x-4 py-6" id="product-containe">
+
+                </div>        
+            </section>
+            <div class="cach" style="height: 200px;"></div>
+            <div class="container mx-auto grid grid-cols-4 gap-4 px-4">
+                <div>
+                    <h3 class="font-semibold mb-2">Liên hệ với chúng tôi</h3>
+                    <p class="text-gray-400">Liên hệ trực tiếp với chúng tôi qua email hoặc bạn có thể ghé thăm văn phòng của chúng tôi.</p>
+                </div>
+                <div>
+                    <h3 class="font-semibold mb-2">Để lại lời nhắn của bạn</h3>
+                    <p class="text-gray-400">Nếu bạn có bất kỳ câu hỏi nào hay cần đội ngũ sale của chúng tôi hỗ trợ, hãy cho chúng tôi biết.</p>
+                </div>
+                <div>
+                    <h3 class="font-semibold mb-2">Đăng ký nhận thông tin</h3>
+                    <p class="text-gray-400">Đừng bỏ lỡ các chương trình ưu đãi và các sản phẩm mới nhất từ chúng tôi bạn nhé.</p>
+                </div>
+                <div>
+                    <h3 class="font-semibold mb-2">Quyền lợi thành viên</h3>
+                    <p class="text-gray-400">Chương trình khách hàng thân thiết Minh Long VIP tại cửa hàng với nhiều quyền lợi và ưu đãi đặc quyền.</p>
+                </div>
+            </div>        
+        </main>
+    </div>
+    
+    </article>
+    <footer class="bg-gray-900 text-white py-8">
+        <div class="border-t border-gray-700 mt-8 py-8">
+            <div class="container mx-auto grid grid-cols-3 gap-4">
+                <div>
+                    <img src="../img/z5885112990692_b899c38d746190aa918a61ccf526a7df.jpg" alt="Logo" class="mb-2 w-24">
+                    <p class="text-gray-400 mb-4">Có rất nhiều biến thể của các đoạn văn trông có vẻ đáng tin cậy, đủ chỉ một chút.</p>
+                    <div class="flex gap-2">
+                        <img src="../img/link.png" alt="PayPal">
+                        <img src="../img/link(1).png" alt="MasterCard">
+                        <img src="../img/Link(2).png" alt="Visa">
+                    </div>
+                </div>
+                <div>
+                    <h3 class="font-semibold mb-4">Liên kết nhanh</h3>
+                    <ul class="text-gray-400 space-y-2">
+                        <li><a href="#" class="hover:text-white">Về Chúng Tôi</a></li>
+                        <li><a href="#" class="hover:text-white">Chúng Tôi Làm Gì</a></li>
+                        <li><a href="#" class="hover:text-white">Gặp Gỡ Đội Ngũ</a></li>
+                        <li><a href="#" class="hover:text-white">Trang Câu Hỏi Thường Gặp</a></li>
+                        <li><a href="#" class="hover:text-white">Liên Hệ Chúng Tôi</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-semibold mb-4">Tìm cửa hàng</h3>
+                    <ul class="text-gray-400 space-y-2">
+                        <li>Thanh Hà - Thanh Hà - Hải Dương</li>
+                        <li>FPT Polytechnic Đà Nẵng</li>
+                        <li>+0905683875</li>
+                    </ul>
+                    <div class="flex gap-3 mt-4">
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-google-plus"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bg-gray-800 py-4 text-center">
+            <p class="text-gray-500">Copyright © 2019 Pottery & Van Mien. All rights reserved.</p>
+        </div>
+    </footer>
+    
+</body>
+</html>

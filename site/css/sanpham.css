@@ -1,0 +1,98 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: 0;
+    width: auto;
+}
+
+header {
+    background-image: url(../../img/unsplash_d1hKXgFJUKw.png);
+    width: 100%;
+    height: 20rem;
+    background-size: cover;
+    background-position: center bottom !important;
+}
+
+.logo img {
+    width: 60px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.navbar a {
+    margin-left: 20px;
+    color: black !important;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.dieuhuong {
+    margin-right: 50px !important;
+}
+
+.dieuhuong a {
+    position: relative;
+    text-decoration: none;
+    color: black;
+    padding-bottom: 5px; /* Tạo khoảng cách cho đường kẻ */
+}
+
+.dieuhuong a:hover {
+    border-radius: 0;
+    text-align: center;
+}
+
+.dieuhuong a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    border-radius: 40px;
+    height: 4px; /* Độ dày của đường kẻ ngang */
+    background-color: rgb(0, 0, 0); /* Màu của đường kẻ */
+    transition: width 0.3s; /* Hiệu ứng chuyển động */
+}
+
+.dieuhuong a:hover::after {
+    width: 100%; /* Hiệu ứng kéo dài đường kẻ ngang */
+}
+
+.dieuhuongnav {
+    position: fixed;
+    z-index: 1;
+    width: 100%;
+    height: 70px;
+    background-color: rgba(182, 181, 181, 0.5);
+    top: 0;
+    transition: top 0.3s;
+}
+.navbar-toggler {
+    display: inline-block;
+}
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba%280, 0, 0, 0.5%29' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+    background-size: cover;
+    width: 1.5em;
+    height: 1.5em;
+}
+/* Hover effect for the product image */
+.text-center img:hover {
+    transform: scale(1.35); /* Slight zoom effect */
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Hover effect for the product title */
+.text-center a:hover .text-lg {
+    color: #2d6a4f; /* Change the text color when hovered */
+    transition: color 0.3s ease;
+}
+
+/* Hover effect for the 'Add to Cart' button */
+.text-center button:hover {
+    background-color: #2d6a4f; /* Change the background color */
+    cursor: pointer; /* Change the cursor to indicate it's clickable */
+}

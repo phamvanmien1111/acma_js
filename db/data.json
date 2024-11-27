@@ -1,0 +1,67 @@
+{
+  "product3": [
+    {
+      "name": "Tấm Mạ Vàng",
+      "brand": "NAKANO",
+      "category": "nhỏ gọn xịn sang",
+      "image": "../img/image 29.png",
+      "price": "1,000,000 VNĐ",
+      "link": "",
+      "id": "2147"
+    },
+    {
+      "name": "Cốc Xanh",
+      "brand": "NAKANO",
+      "category": "nhỏ gọn xịn sang",
+      "image": "../img/image.png",
+      "price": "1,000,000 VNĐ",
+      "link": "",
+      "id": "bba6"
+    },
+    {
+      "name": "Tấm HEID",
+      "brand": "NAKANO",
+      "category": "nhỏ gọn xịn sang",
+      "image": "../img/Link → product-24-360x360.jpg.png",
+      "price": "1,000,000 VNĐ",
+      "link": "",
+      "id": "d9dd"
+    },
+    {
+      "name": "Cốc Cà Phê",
+      "brand": "NAKANO",
+      "category": "nhỏ gọn xịn sang",
+      "image": "../img/Link → product-22-360x360.jpg.png",
+      "price": "1,000,000 VNĐ",
+      "link": "",
+      "id": "8267"
+    },
+    {
+      "name": "White Leaf Plate",
+      "brand": "NAKANO",
+      "category": "nhỏ gọn xịn sang",
+      "image": "../img/Link → product-34-360x360.jpg.png",
+      "price": "1,000,000 VNĐ",
+      "link": "",
+      "id": "ee97"
+    },
+    {
+      "name": "Tấm Mạ Vàng",
+      "brand": "NAKANO",
+      "category": "nhỏ gọn xịn sang",
+      "image": "../img/image 29.png",
+      "price": "1,000,000 VNĐ",
+      "link": "",
+      "id": "2941"
+    },
+    {
+      "name": "Cốc Xanh",
+      "brand": "NAKANO",
+      "category": "nhỏ gọn xịn sang",
+      "image": "../img/image.png",
+      "price": "1,000,000 VNĐ",
+      "link": "",
+      "id": "b820"
+    }
+  ]
+}

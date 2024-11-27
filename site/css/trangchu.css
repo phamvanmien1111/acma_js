@@ -1,0 +1,348 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: 0;
+    width: auto;
+}
+
+header {
+    background-image: url(../../img/unsplash_d1hKXgFJUKw.png);
+    width: 100%;
+    height: 20rem;
+    background-size: cover;
+    background-position: center bottom !important;
+}
+
+.logo img {
+    width: 60px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.navbar a {
+    margin-left: 20px;
+    color: black !important;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.dieuhuong {
+    margin-right: 50px !important;
+}
+
+.dieuhuong a {
+    position: relative;
+    text-decoration: none;
+    color: black;
+    padding-bottom: 5px; /* Tạo khoảng cách cho đường kẻ */
+}
+
+.dieuhuong a:hover {
+    border-radius: 0;
+    text-align: center;
+}
+
+.dieuhuong a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    border-radius: 40px;
+    height: 4px; /* Độ dày của đường kẻ ngang */
+    background-color: rgb(0, 0, 0); /* Màu của đường kẻ */
+    transition: width 0.3s; /* Hiệu ứng chuyển động */
+}
+
+.dieuhuong a:hover::after {
+    width: 100%; /* Hiệu ứng kéo dài đường kẻ ngang */
+}
+
+.dieuhuongnav {
+    position: fixed;
+    z-index: 1;
+    width: 100%;
+    height: 70px;
+    background-color: rgba(182, 181, 181, 0.5);
+    top: 0;
+    transition: top 0.3s;
+}
+.navbar-toggler {
+    display: inline-block;
+}
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba%280, 0, 0, 0.5%29' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+    background-size: cover;
+    width: 1.5em;
+    height: 1.5em;
+}
+article {
+    width: auto !important;
+    height: auto;
+}
+/*  */
+.main-container {
+    display: flex;
+    width: 100%;
+    margin: 0 auto;
+}
+.sanpham:hover{
+    width: 300px;
+}
+.sidebar {
+    width: 350px !important;
+    padding: 20px;
+    height: 2060px;
+    background-color: #f9f9f9;
+    border-right: 1px solid #ccc;
+}
+
+.sidebar h3 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.sidebar ul {
+    list-style: none;
+}
+
+.sidebar ul li {
+    margin-bottom: 10px;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 1em;
+    transition: color 0.3s;
+}
+
+.sidebar ul li a:hover {
+    color: #007bff;
+}
+
+/* Nội dung chính */
+.content {
+    flex: 1;
+    padding: 20px;
+}
+
+/* Phần giới thiệu */
+.intro {
+    position: relative;
+    width: 100%;
+    height: 400px; /* Chiều cao của phần giới thiệu */
+    overflow: hidden;
+}
+
+.intro img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Để hình ảnh phủ toàn bộ khu vực */
+}
+
+.intro-content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.text-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.5); /* Màu nền đen trong suốt */
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.text-overlay h1 {
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+.text-overlay p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+.intro-button {
+    padding: 10px 20px;
+    background-color: #f0cc8d;
+    border: none;
+    font-size: 1em;
+    cursor: pointer;
+    color: #663300;
+    border-radius: 5px;
+}
+
+/* Sản phẩm mới nhất */
+.new-products {
+    margin-top: 30px;
+}
+
+.new-products h2 {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    color: #333;
+}
+.slider {
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.product-list {
+    display: flex;
+    gap: 20px;
+    transition: transform 0.5s ease;
+}
+
+.product-item {
+    width: 180px;
+    padding: 10px;
+    flex-shrink: 0;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    margin-left: 5px !important;
+}
+
+.product-item img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+.product-item p {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.product-item span {
+    color: #333;
+    font-size: 0.9em;
+}
+/* Hover effect for product image */
+.product-item img:hover {
+    transform: scale(1.5); /* Zoom in the image */
+    transition: transform 0.5s ease; /* Smooth transition */
+}
+
+/* Hover effect for product title */
+.product-item p:hover {
+    color: #2d6a4f; /* Change the color of the product name */
+    transition: color 0.3s ease; /* Smooth transition */
+}
+
+/* Hover effect for product price */
+.product-item span:hover {
+    color: #e63946; /* Change price color on hover */
+    transition: color 0.3s ease; /* Smooth transition */
+}
+
+.prev-btn, .next-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    border: none;
+    font-size: 24px;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.prev-btn {
+    left: 0;
+}
+
+.next-btn {
+    right: 0;
+}
+/* Danh mục cửa hàng */
+.shop-category {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.shop-category h2 {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+
+.shop-button {
+    padding: 10px 20px;
+    background-color: #f0cc8d;
+    border: none;
+    font-size: 1em;
+    cursor: pointer;
+    color: #663300;
+    margin-bottom: 30px;
+    border-radius: 5px;
+}
+
+.category-list {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.category-item {
+    width: 180px;
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.category-item img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+.category-item p {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.category-item span {
+    color: #333;
+    font-size: 0.9em;
+}
+
+/* Hover effect for the image */
+.relative img:hover {
+    transform: scale(1.1); /* Slight zoom effect on image */
+    transition: transform 0.3s ease; /* Smooth transition for zoom */
+}
+
+/* Hover effect for the title */
+.relative h3:hover {
+    color: #2d6a4f; /* Change text color on hover */
+    transition: color 0.3s ease; /* Smooth color transition */
+}
+
+/* Hover effect for the 'Add to Cart' button */
+.relative button:hover {
+    background-color: #2d6a4f; /* Change background color */
+    cursor: pointer; /* Change cursor to indicate it's clickable */
+}
+
+/* Hover effect for the description text */
+.relative p:hover {
+    color: #e63946; /* Change text color for the description */
+    transition: color 0.3s ease;
+}
