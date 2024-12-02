@@ -6,6 +6,7 @@
   <title>Admin Dashboard - Gốm Sứ</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@^3.0/dist/tailwind.min.css" rel="stylesheet">
+  
 </head>
 <body class="bg-pink-400 font-sans">
   <div class="flex">
@@ -17,7 +18,7 @@
 
       <nav class="space-y-4">
         <a href="#" class="block py-2 px-4 rounded hover:bg-blue-800">Quản lý sản phẩm</a>
-        <a href="#" class="block py-2 px-4 rounded hover:bg-blue-800">Quản lý đơn hàng</a>
+        <a href="Qly_DH.html" class="block py-2 px-4 rounded hover:bg-blue-800">Quản lý đơn hàng</a>
         <a href="#" class="block py-2 px-4 rounded hover:bg-blue-800">Thống kê doanh thu</a>
         <a href="#" class="block py-2 px-4 rounded hover:bg-blue-800">Cập nhật thông tin</a>
       </nav>
@@ -58,13 +59,73 @@
               <th class="p-4 text-left">Thao tác</th>
             </tr>
           </thead>
-
+          <!-- test -->
+          <div class="flex justify-end mb-4">
+            <button id="btn-add" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">Thêm Sản Phẩm</button>
+          </div>
+          
+          <!-- Modal Thêm Sản Phẩm -->
+          <div id="modal-add" class="fixed inset-0 bg-gray-800 bg-opacity-50 flex items-center justify-center hidden">
+            <div class="bg-white p-6 rounded-lg w-1/3">
+              <h2 class="text-xl font-bold mb-4">Thêm Sản Phẩm</h2>
+              <form class="form-product">
+                <div class="mb-4">
+                  <label for="add-product-name" class="block text-gray-700">Tên Sản Phẩm</label>
+                  <input type="text" name="fullname" id="add-product-name" class="w-full p-2 border rounded" required>
+                </div>
+                <div class="mb-4">
+                  <label for="add-product-brand" class="block text-gray-700">chi tiết sản phẩm</label>
+                  <input type="text" name="chi_tiet" id="add-pro duct-brand" class="w-full p-2 border rounded" required>
+                </div>
+                <div class="mb-4">
+                  <label for="add-product-price" class="block text-gray-700">Giá</label>
+                  <input type="text" name="price" id="add-product-price" class="w-full p-2 border rounded" required>
+                </div>
+                <div class="mb-4">
+                  <label for="add-product-image" class="block text-gray-700">Tải lên Hình Ảnh</label>
+                  <input type="file" id="add-product-image" accept="image/*" class="w-full p-2 border rounded" required>
+                </div>
+                <div class="flex justify-end space-x-4">
+                  <button type="button" id="modal-add-cancel" class="bg-gray-500 text-white px-4 py-2 rounded">Hủy</button>
+                  <button type="submit" class="bg-green-500 text-white px-4 py-2 rounded">Thêm</button>
+                </div>
+              </form>
+            </div>
+          </div>
+          
         </table>
         <table id="table" class="min-w-full bg-white">
-
         </table>
+        
       </div>
-
+      <div id="modal-edit" class="hidden fixed inset-0 bg-gray-600 bg-opacity-50 flex justify-center items-center">
+        <div class="bg-white p-6 rounded shadow-md w-1/2">
+          <h2 class="text-2xl mb-4">Sửa Sản Phẩm</h2>
+          <form id="edit-form" class="form-product">
+            <div class="mb-4">
+              <label for="edit-product-name" class="block text-gray-700">Tên Sản Phẩm</label>
+              <input type="text" name="fullname" id="edit-product-name" class="w-full p-2 border rounded" required>
+            </div>
+            <div class="mb-4">
+              <label for="edit-product-detail" class="block text-gray-700">Chi Tiết Sản Phẩm</label>
+              <input type="text" name="chi_tiet" id="edit-product-detail" class="w-full p-2 border rounded" required>
+            </div>
+            <div class="mb-4">
+              <label for="edit-product-price" class="block text-gray-700">Giá</label>
+              <input type="text" name="price" id="edit-product-price" class="w-full p-2 border rounded" required>
+            </div>
+            <div class="mb-4">
+              <label for="edit-product-image" class="block text-gray-700">Tải Lên Hình Ảnh (Tùy Chọn)</label>
+              <input type="file" id="edit-product-image" accept="image/*" class="w-full p-2 border rounded">
+            </div>
+            <div class="flex justify-end space-x-4">
+              <button type="button" id="modal-edit-cancel" class="bg-gray-500 text-white px-4 py-2 rounded">Hủy</button>
+              <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">Lưu</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      
       <div class="grid grid-cols-3 gap-6 mt-8">
         <div class="bg-indigo-100 p-6 rounded-lg text-center">
           <h3 class="font-semibold text-indigo-800">Instagram</h3>

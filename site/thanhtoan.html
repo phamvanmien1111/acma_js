@@ -5,14 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trang Chủ</title>
     <link rel="stylesheet" type="text/css" href="./css/sanpham.css">
-    <script src="./script/script.js"></script>
+    <script src="./script/thanhtoan.js"></script>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.6/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"> 
-
 </head>
 <body>
     <header>
@@ -33,7 +32,7 @@
                                 <a class="nav-link" href="Trangchu.html">Trang Chủ</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="javascript:void(0)">Sản Phẩm</a>
+                                <a class="nav-link" href="sanpham.html">Sản Phẩm</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="javascript:void(0)">Giới Thiệu</a>
@@ -57,36 +56,9 @@
         <div class="lg:col-span-2 bg-white rounded-lg p-4 shadow-md">
             <h2 class="text-lg font-bold mb-4">MIỀN SHOP</h2>
             <p class="text-sm text-gray-600 mb-4">Thành phố Hải Dương, Huyện Thanh Hà</p>
-
-            <!-- Danh sách sản phẩm -->
-            <div class="border border-blue-500 rounded-lg p-4 mb-4">
-                <div class="flex items-center justify-between border-b pb-2 mb-2">
-                    <div class="flex items-center">
-                        <img src="../../img/123.png" alt="Sản phẩm" class="w-16 h-16 rounded mr-4">
-                        <div>
-                            <p class="font-semibold">CỐC XỬ KHẮC HỌA CHI TIẾT CÁ CHÉP HÓA RỒNG</p>
-                            <p class="text-gray-500 text-sm">LỰA CHỌN: A, Cốc Nhỏ</p>
-                        </div>
-                    </div>
-                    <p class="font-semibold">120.000.000 VNĐ</p>
-                    <p>1</p>
-                    <p class="font-semibold">120.000.000 VNĐ</p>
-                </div>
-
-                <!-- Sản phẩm thứ hai -->
-                <div class="flex items-center justify-between">
-                    <div class="flex items-center">
-                        <img src="../../img/123.png" alt="Sản phẩm" class="w-16 h-16 rounded mr-4">
-                        <div>
-                            <p class="font-semibold">CỐC XỬ KHẮC HỌA CHI TIẾT CÁ CHÉP HÓA RỒNG</p>
-                            <p class="text-gray-500 text-sm">LỰA CHỌN: A, Cốc Nhỏ</p>
-                        </div>
-                    </div>
-                    <p class="font-semibold">120.000.000 VNĐ</p>
-                    <p>1</p>
-                    <p class="font-semibold">120.000.000 VNĐ</p>
-                </div>
-            </div>
+             <div class="product-details ">  
+             </div>
+           
 
             <!-- Tổng Giá và Voucher -->
             <div class="flex justify-between items-center mt-4">
@@ -144,8 +116,54 @@
 </body>
 </html>
 <script>
-    function thanhtoan() {
-        alert('Đặt hàng thành công!');
-        window.location.href = 'chtietsanpham.html';
+async function fetchSanPhamDetails(productId) {
+    try {
+        const responseProducts = await fetch('http://localhost:3000/product2');
+        if (!responseProducts.ok) throw new Error('Lỗi khi tải JSON product2');
+        const products = await responseProducts.json();
+
+        const product = products.find(p => p.id == productId);
+        if (product) {
+            displayProductDetails(product);
+        } else {
+            console.log('Không tìm thấy sản phẩm với ID:', productId);
+        }
+    } catch (error) {
+        console.error('Lỗi không thể tải JSON:', error);
     }
+}
+
+function displayProductDetails(product) {
+    const productContainer = document.querySelector(".product-details"); // Sửa selector từ "#product-details" thành ".product-details"
+    
+    if (!product) {
+        productContainer.innerHTML = "<p>Sản phẩm không tìm thấy.</p>";
+        return;
+    }
+
+    productContainer.innerHTML = `
+        <div class="border border-blue-500 rounded-lg p-4 mb-4">
+                <div class="flex items-center justify-between border-b pb-2 mb-2">
+                    <div class="flex items-center">
+                        <img src="${product.image}" alt="Sản phẩm" class="w-16 h-16 rounded mr-4">
+                        <div>
+                            <p class="font-semibold">${product.name}</p>
+                            <p class="text-gray-500 text-sm">LỰA CHỌN: A, Cốc Nhỏ</p>
+                        </div>
+                    </div>
+                    <p class="font-semibold">${product.price}</p>
+                    <p>1</p>
+                    <p class="font-semibold">120.000.000 VNĐ</p>
+                </div>
+                </div>
+    `;
+}
+
+// Chạy khi load trang
+if (productId) {
+    fetchSanPhamDetails(productId);
+} else {
+    console.log('Không có ID trong URL');
+}
+
 </script>

@@ -194,3 +194,19 @@ window.onload = function() {
     }
 }
 
+/////////////////
+document.addEventListener("DOMContentLoaded", () => {
+    fetch("http://localhost:3000/product2") // Thay đường dẫn thành API hoặc file JSON của bạn
+        .then(response => response.json())
+        .then(data => {
+            const productId = urlParams.get('id');
+
+            const checkoutButton = document.getElementById("checkout-button");
+            checkoutButton.addEventListener("click", () => {
+                window.location.href = `http://127.0.0.1:5500/site/thanhtoan.html?id=${productId}`;
+            });
+        })
+        .catch(error => {
+            console.error("Lỗi khi lấy dữ liệu JSON:", error);
+        });
+});

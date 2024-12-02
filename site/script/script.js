@@ -25,8 +25,10 @@ function duplicateSlides() {
 function showSlide(index) {
     const productList = document.querySelector('.product-list');
     const productItems = document.querySelectorAll('.product-item');
-    const productWidth = productItems[0].offsetWidth + 20; // Chiều rộng của sản phẩm và khoảng cách giữa chúng
-    const totalItems = productItems.length / 3; // Tổng sản phẩm ban đầu (vì đã nhân 3)
+    // Chiều rộng của sản phẩm và khoảng cách giữa chúng
+    const productWidth = productItems[0].offsetWidth + 20;
+    // Tổng sản phẩm ban đầu (vì đã nhân 3) 
+    const totalItems = productItems.length / 3; 
 
     // Điều chỉnh index để tạo hiệu ứng vòng lặp
     if (index < 0) {

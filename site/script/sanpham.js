@@ -57,3 +57,10 @@ function displayProduct2(product2) {
 }
 
 fetchSanPham();
+
+document.querySelector('.btn-thanh-toan').addEventListener('click', function(e) {
+    // Kiểm tra xem dữ liệu có hợp lệ trước khi chuyển hướng
+    if (!isValid) {
+        e.preventDefault(); // Ngăn chặn hành vi chuyển hướng
+    }
+});
