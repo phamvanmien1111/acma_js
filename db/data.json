@@ -227,5 +227,72 @@
       "price": "1,000,000 VNĐ",
       "link": "#"
     }
+  ],
+  "orders": [
+    {
+      "id": "6ead",
+      "products": [
+        {
+          "name": "Ly sứ dưỡng sinh 0.48 L (K2) + nắp ống hút - Đại dương",
+          "image": "http://127.0.0.1:5500/img/image%2028.png",
+          "price": 1000000,
+          "quantity": 1
+        }
+      ],
+      "totalPrice": 1000000,
+      "orderDate": "2024-12-03T06:40:05.799Z"
+    },
+    {
+      "id": "d2d4",
+      "products": [
+        {
+          "name": "Tấm Mạ Vàng",
+          "image": "http://127.0.0.1:5500/img/image%2029.png",
+          "price": 1000000,
+          "quantity": 1
+        }
+      ],
+      "totalPrice": 1000000,
+      "orderDate": "2024-12-03T07:29:12.345Z"
+    },
+    {
+      "id": "0bbd",
+      "products": [
+        {
+          "name": "Tấm Mạ Vàng",
+          "image": "http://127.0.0.1:5500/img/image%2029.png",
+          "price": 1000000,
+          "quantity": 1
+        }
+      ],
+      "totalPrice": 1000000,
+      "orderDate": "2024-12-03T07:30:20.135Z"
+    },
+    {
+      "id": "ebca",
+      "products": [
+        {
+          "name": "Tấm Mạ Vàng",
+          "image": "http://127.0.0.1:5500/img/image%2029.png",
+          "price": 1000000,
+          "quantity": 1
+        }
+      ],
+      "totalPrice": 1000000,
+      "orderDate": "2024-12-03T07:30:46.547Z"
+    },
+    {
+      "id": "2025",
+      "products": [
+        {
+          "name": "Tấm Mạ Vàng",
+          "image": "http://127.0.0.1:5500/img/image%2029.png",
+          "price": 1000000,
+          "quantity": 1
+        }
+      ],
+      "totalPrice": 1000000,
+      "orderDate": "2024-12-03T07:32:10.325Z"
+    }
   ]
 }

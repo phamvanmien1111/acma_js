@@ -116,6 +116,49 @@
 </body>
 </html>
 <script>
+// async function fetchSanPhamDetails(productId) {
+//     try {
+//         const responseProducts = await fetch('http://localhost:3000/product2');
+//         if (!responseProducts.ok) throw new Error('Lỗi khi tải JSON product2');
+//         const products = await responseProducts.json();
+
+//         const product = products.find(p => p.id == productId);
+//         if (product) {
+//             displayProductDetails(product);
+//         } else {
+//             console.log('Không tìm thấy sản phẩm với ID:', productId);
+//         }
+//     } catch (error) {
+//         console.error('Lỗi không thể tải JSON:', error);
+//     }
+// }
+
+// function displayProductDetails(product) {
+//     const productContainer = document.querySelector(".product-details"); // Sửa selector từ "#product-details" thành ".product-details"
+    
+//     if (!product) {
+//         productContainer.innerHTML = "<p>Sản phẩm không tìm thấy.</p>";
+//         return;
+//     }
+
+//     productContainer.innerHTML = `
+//         <div class="border border-blue-500 rounded-lg p-4 mb-4">
+//                 <div class="flex items-center justify-between border-b pb-2 mb-2">
+//                     <div class="flex items-center">
+//                         <img src="${product.image}" alt="Sản phẩm" class="w-16 h-16 rounded mr-4">
+//                         <div>
+//                             <p class="font-semibold">${product.name}</p>
+//                             <p class="text-gray-500 text-sm">LỰA CHỌN: A, Cốc Nhỏ</p>
+//                         </div>
+//                     </div>
+//                     <p class="font-semibold">${product.price}</p>
+//                     <p>1</p>
+//                     <p class="font-semibold">120.000.000 VNĐ</p>
+//                 </div>
+//                 </div>
+//     `;
+// }
+
 async function fetchSanPhamDetails(productId) {
     try {
         const responseProducts = await fetch('http://localhost:3000/product2');
@@ -134,8 +177,8 @@ async function fetchSanPhamDetails(productId) {
 }
 
 function displayProductDetails(product) {
-    const productContainer = document.querySelector(".product-details"); // Sửa selector từ "#product-details" thành ".product-details"
-    
+    const productContainer = document.querySelector(".product-details");
+
     if (!product) {
         productContainer.innerHTML = "<p>Sản phẩm không tìm thấy.</p>";
         return;
@@ -143,21 +186,67 @@ function displayProductDetails(product) {
 
     productContainer.innerHTML = `
         <div class="border border-blue-500 rounded-lg p-4 mb-4">
-                <div class="flex items-center justify-between border-b pb-2 mb-2">
-                    <div class="flex items-center">
-                        <img src="${product.image}" alt="Sản phẩm" class="w-16 h-16 rounded mr-4">
-                        <div>
-                            <p class="font-semibold">${product.name}</p>
-                            <p class="text-gray-500 text-sm">LỰA CHỌN: A, Cốc Nhỏ</p>
-                        </div>
+            <div class="flex items-center justify-between border-b pb-2 mb-2">
+                <div class="flex items-center">
+                    <img src="${product.image}" alt="Sản phẩm" class="w-16 h-16 rounded mr-4">
+                    <div>
+                        <p class="font-semibold">${product.name}</p>
+                        <p class="text-gray-500 text-sm">LỰA CHỌN: A, Cốc Nhỏ</p>
                     </div>
-                    <p class="font-semibold">${product.price}</p>
-                    <p>1</p>
-                    <p class="font-semibold">120.000.000 VNĐ</p>
                 </div>
-                </div>
+                <p class="font-semibold">${product.price} VNĐ</p>
+                <p>1</p>
+                <p class="font-semibold">${product.price} VNĐ</p>
+            </div>
+        </div>
     `;
 }
+
+function thanhtoan() {
+    const productElements = document.querySelectorAll(".product-details .border");
+    const products = Array.from(productElements).map(productEl => ({
+        name: productEl.querySelector('.font-semibold').innerText.trim(),
+        image: productEl.querySelector('img').src,
+        price: parseInt(productEl.querySelectorAll('.font-semibold')[1].innerText.replace(/\D/g, '')),
+        quantity: 1
+    }));
+
+    const orderData = {
+        products,
+        totalPrice: products.reduce((total, product) => total + product.price * product.quantity, 0),
+        orderDate: new Date().toISOString()
+    };
+
+    fetch('http://localhost:3000/orders', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(orderData)
+    })
+    .then(response => {
+        if (!response.ok) throw new Error('Lỗi gửi đơn hàng');
+        return response.json();
+    })
+    .then(data => {
+    alert('Đặt hàng thành công!');
+    console.log('Đơn hàng đã được lưu:', data);
+    })
+    .catch(error => {
+        console.error('Lỗi khi đặt hàng:', error);
+    });
+}
+
+window.onload = function() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const productId = urlParams.get('productId'); 
+    if (productId) {
+        fetchSanPhamDetails(productId);
+    } else {
+        console.log('Không có ID trong URL');
+    }
+};
+
 
 // Chạy khi load trang
 if (productId) {

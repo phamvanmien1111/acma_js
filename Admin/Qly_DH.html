@@ -6,6 +6,15 @@
   <title>Admin Dashboard - Gốm Sứ</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@^3.0/dist/tailwind.min.css" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com?plugins=line-clamp"></script>
+      <script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {},
+    },
+  };
+</script>
   
 </head>
 <body class="bg-pink-400 font-sans">
@@ -48,18 +57,21 @@
         </div>
       </div>
       <div class="bg-pink-200 p-6 rounded-lg shadow-md">
-        <h2 class="text-xl font-semibold text-gray-700 mb-4">Danh sách sản phẩm</h2>
+        <h2 class="text-xl font-semibold text-gray-700 mb-4">Danh sách Đơn Hàng</h2>
         <table class="min-w-full bg-white">
           <thead>
             <tr class="w-full bg-gray-100 border-b">
-              <th class="p-4 text-left">Sản phẩm</th>
+              <th class="p-4 text-left">Name</th>
               <th><img src="" alt="">image</th>
-              <th class="p-4 text-left">Chi Tiết</th>
               <th class="p-4 text-left">Giá bán</th>
+              <th class="p-4 text-left">Quantity</th>
+              <th class="p-4 text-left">totalPrice</th>
+              <th class="p-4 text-left">orderDate</th>
               <th class="p-4 text-left">Thao tác</th>
             </tr>
           </thead>
-         
+          <table id="order" class="min-w-full bg-white">
+          </table>
       
       <div class="grid grid-cols-3 gap-6 mt-8">
         <div class="bg-indigo-100 p-6 rounded-lg text-center">
@@ -79,5 +91,7 @@
   </div>
 
 </body>
-<script src="main.js" ></script>
+<script src="order.js" ></script>
+
+
 </html>
