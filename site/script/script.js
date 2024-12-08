@@ -71,17 +71,15 @@ window.addEventListener('DOMContentLoaded', () => {
 
 
 /// giỏ hàng
-
-//SẢN PHẨM NAKANO MỚI NHẤT
 async function fetchSanPham() {
     try {
-        // Fetch sản phẩm chính
+        // Fetch sản phẩm đầu
         const responseProducts = await fetch('http://localhost:3000/products');
         if (!responseProducts.ok) throw new Error(`Lỗi khi tải JSON products`);
         const products = await responseProducts.json();
         displayProducts(products);
 
-        // Fetch sản phẩm phụ
+        // Fetch sản phẩm cuối
         const responseProduct1 = await fetch('http://localhost:3000/product1');
         if (!responseProduct1.ok) throw new Error(`Lỗi khi tải JSON product1`);
         const product1 = await responseProduct1.json();

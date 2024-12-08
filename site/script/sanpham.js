@@ -1,20 +1,22 @@
 async function fetchSanPham() {
     try {
-        // Lấy JSON từ product2
-        const responseProducts = await fetch('http://localhost:3000/product2');
-        if (!responseProducts.ok) throw new Error(`Lỗi khi tải JSON product2`);
-        const products = await responseProducts.json();
-        displayProducts(products);
+        const response = await fetch('http://localhost:3000/product2');
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const productList = await response.json();
 
-        // Lấy JSON từ product3
-        const responseProduct2 = await fetch('http://localhost:3000/product3');
-        if (!responseProduct2.ok) throw new Error(`Lỗi khi tải JSON product3`);
-        const product2 = await responseProduct2.json();
-        displayProduct2(product2);
+        if (!productList || productList.length === 0) {
+            console.error('Danh sách sản phẩm rỗng hoặc không tồn tại.');
+            return;
+        }
+
+        displayProducts(productList); // Gọi hàm hiển thị sản phẩm
     } catch (error) {
-        console.error('Lỗi không thể tải JSON:', error);
+        console.error('Lỗi không thể tải JSON:', error.message);
     }
 }
+
 
 function displayProducts(products) {
     const productContainer = document.getElementById("products");

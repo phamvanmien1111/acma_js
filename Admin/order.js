@@ -21,8 +21,7 @@ const renderProduct = (order) => {
                 >
                 ${product.name}
                 </td>
-
-                <td class="p-4  w-[190px]"><img src="${product.image}" alt="${product.name}" class="w-30 h-30"></td>
+               <td class="p-4  w-[190px]"><img src="${product.image}" alt="${product.name}" class="w-30 h-30"></td>
                 <td class="p-4">${product.price.toLocaleString()} VNĐ</td>
                 <td class="p-4">${product.quantity}</td>
                 <td class="p-4">${(product.price * product.quantity).toLocaleString()} VNĐ</td>
@@ -36,5 +35,5 @@ const renderProduct = (order) => {
     });
 }
 function showFullContent(content) {
-    alert(content); // Hiển thị nội dung đầy đủ trong alert
+    alert(content); 
   }

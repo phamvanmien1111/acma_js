@@ -1,6 +1,25 @@
 // Khởi tạo giỏ hàng
 let cart = [];
 
+// Hàm lưu giỏ hàng vào localStorage
+function saveCart() {
+    localStorage.setItem('cart', JSON.stringify(cart));
+}
+
+// Hàm tải giỏ hàng từ localStorage
+function loadCart() {
+    const storedCart = localStorage.getItem('cart');
+    if (storedCart) {
+        cart = JSON.parse(storedCart);
+    }
+}
+document.addEventListener("DOMContentLoaded", () => {
+    loadCart(); // Tải giỏ hàng từ localStorage
+    updateCartCount(); // Cập nhật số lượng trên icon
+    renderCart(); // Hiển thị giỏ hàng nếu có
+});
+
+
 // Hàm cập nhật số lượng trên icon giỏ hàng
 function updateCartCount() {
     const cartCountElement = document.getElementById('cart-count');
@@ -25,67 +44,81 @@ function addToCart(id, name, price, image) {
     }
 
     updateCartCount();
+    saveCart(); // Lưu giỏ hàng vào localStorage
     alert(`Đã thêm ${name} vào giỏ hàng.`);
 }
 
 
 // Hàm hiển thị giỏ hàng
-function renderCart() {
+const renderCart = () => {
     const cartItemsContainer = document.getElementById('cart-items');
     cartItemsContainer.innerHTML = '';
 
-    if (cart.length === 0) {
+    if (!cart.length) {
         cartItemsContainer.innerHTML = '<tr><td colspan="6" class="text-center">Giỏ hàng trống</td></tr>';
         return;
     }
 
-    cart.forEach((item, index) => {
-        const totalPrice = item.price * item.quantity;
-        cartItemsContainer.innerHTML += `
+    const content = cart.map(({ id, name, image, price, quantity }) => {
+        const totalPrice = price * quantity;
+        return `
             <tr class="border-b border-gray-200">
-                <td class="p-4">${item.name}</td>
-                <td class="p-4"><img src="${item.image}" alt="" class="w-16"></td>
+                <td class="p-4">${name}</td>
+                <td class="p-4"><img src="${image}" alt="" class="w-16"></td>
                 <td class="p-4">
-                    <input 
-    type="number" 
-    value="${item.quantity}" 
-    min="1" 
-    class="w-16 text-center border border-gray-300 rounded-md"
-    onchange="updateQuantity(${item.id}, this.value)"
->
+                   <input 
+                        type="number" 
+                        value="${quantity}" 
+                        min="1" 
+                        class="w-16 text-center border border-gray-300 rounded-md"
+                        onchange="updateQuantity('${id}', this.value)"
+                    >
+                    <button class="ml-2 text-gray-500 hover:text-gray-700" onclick="decreaseQuantity(${id})">cập nhập</button>
                 </td>
-                <td class="p-4 text-gray-700">${item.price.toLocaleString()} VND</td>
+                <td class="p-4 text-gray-700">${price.toLocaleString()} VND</td>
                 <td class="p-4 text-gray-700">${totalPrice.toLocaleString()} VND</td>
                 <td class="p-4 text-center">
-                    <button class="text-red-500 hover:text-red-700" onclick="removeFromCart(${item.id})">
+                    <button class="text-red-500 hover:text-red-700" onclick="removeFromCart(${id})">
                         Xóa
                     </button>
                 </td>
             </tr>
         `;
-    });
-}
+    }).join('');
 
-// Hàm cập nhật số lượng sản phẩm
-function updateQuantity(id, quantity) {
-    quantity = parseInt(quantity, 10);
-    if(isNaN(quantity) || quantity <1){
-        quantity = 1;
+    cartItemsContainer.innerHTML = content;
+};
+
+
+const updateQuantity = (id, value) => {
+    const quantity = Number(value);
+
+    if (isNaN(quantity) || quantity <= 0) {
+        alert('Số lượng không hợp lệ!');
+        return;
     }
+
     const item = cart.find(item => item.id === id);
     if (item) {
         item.quantity = quantity;
+        renderCart();
+        updateCartCount();
+        saveCart(); // Lưu trạng thái giỏ hàng
     }
-    renderCart();
-    updateCartCount();
-}
+};
+
+
+
 
 // Hàm xóa sản phẩm khỏi giỏ hàng
-function removeFromCart(id) {
-    cart = cart.filter(item => item.id !== id);
+const removeFromCart = id => {
+    console.log("Trước khi xóa:", cart); // Kiểm tra giỏ hàng trước khi xóa
+    cart = cart.filter(item => item.id != id); // Lọc bỏ sản phẩm có ID trùng khớp
+    console.log("Sau khi xóa:", cart); // Kiểm tra giỏ hàng sau khi xóa
     renderCart();
     updateCartCount();
-}
+};
+
 
 // Xử lý sự kiện khi ấn nút "Thêm vào giỏ hàng"
 document.addEventListener('click', (event) => {
@@ -118,20 +151,22 @@ const urlParams = new URLSearchParams(window.location.search);
 const productId = urlParams.get('id');
 async function fetchSanPhamDetails(productId) {
     try {
-        // Lấy JSON từ product2
-        const responseProducts = await fetch('http://localhost:3000/product2');
-        if (!responseProducts.ok) throw new Error(`Lỗi khi tải JSON product2`);
-        const products = await responseProducts.json();
+        const response = await fetch('http://localhost:3000/product2');
+        if (!response.ok) throw new Error(`Lỗi khi tải JSON product2`);
+        const products = await response.json();
 
-        // Tìm sản phẩm theo ID
+        if (!products || products.length === 0) {
+            throw new Error('Danh sách sản phẩm rỗng hoặc không tồn tại.');
+        }
+
         const product = products.find(p => p.id == productId);
         if (product) {
             displayProductDetails(product);
         } else {
-            console.log('Không tìm thấy sản phẩm');
+            // console.error('Không tìm thấy sản phẩm với ID:', productId);
         }
     } catch (error) {
-        console.error('Lỗi không thể tải JSON:', error);
+        // console.error('Lỗi không thể tải JSON:', error.message);
     }
 }
 
@@ -190,7 +225,7 @@ window.onload = function() {
     if (productId) {
         fetchSanPhamDetails(productId);
     } else {
-        console.log('Không có ID sản phẩm');
+        // console.log('Không có ID sản phẩm');
     }
 }
 
@@ -207,6 +242,6 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         })
         .catch(error => {
-            console.error("Lỗi khi lấy dữ liệu JSON:", error);
+            // console.error("Lỗi khi lấy dữ liệu JSON:", error);
         });
 });
