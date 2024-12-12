@@ -8,6 +8,8 @@
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@^3.0/dist/tailwind.min.css" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com?plugins=line-clamp"></script>
       <script src="https://cdn.tailwindcss.com"></script>
+      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 <script>
   tailwind.config = {
     theme: {
@@ -19,7 +21,7 @@
 </head>
 <body class="bg-white-400 font-sans">
   <div class="flex">
-    <aside class="w-64 bg-black text-white p-6 fixed h-full">
+    <aside class="w-64 bg-black text-white p-6">
         <a href="#" class="flex items-center space-x-4">
             <img src="../img/z5885112990692_b899c38d746190aa918a61ccf526a7df.jpg" alt="" class="w-16 rounded-full">
             <h2 class="text-xl font-bold hover:text-black rounded">Trang Chủ</h2>
@@ -33,9 +35,9 @@
       </nav>
     </aside>
 
-    <div class="flex-1 p-6 ml-64">
+    <div class="flex-1 p-6">
       <header class="flex items-center justify-between mb-8">
-        <h1 class="text-3xl font-bold text-gray-700">Quản Lý Đơn Hàng</h1>
+        <h1 class="text-3xl font-bold text-gray-700">Dashboard</h1>
         <div class="flex items-center space-x-4">
           <span class="text-gray-600">Miền</span>
           <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSeRDGifN2P3mno92v3_LVh7sCS-A3AjAxcNQ&s" alt="Profile" class="w-10 h-10 rounded-full">
@@ -43,42 +45,35 @@
       </header>
       <div class="bg-white-200 p-6 rounded-lg shadow-md">
         <h2 class="text-xl font-semibold text-gray-700 mb-4">Danh sách Đơn Hàng</h2>
-        <table class="min-w-full bg-white">
-          <thead>
-            <tr class="w-full bg-gray-100 border-b">
-              <th class="p-4 text-left">Tên sản phẩm</th>
-              <th class="p-4 text-left">Hình ảnh</th>
-              <th class="p-4 text-left">Giá bán</th>
-              <th class="p-4 text-left">Số lượng</th>
-              <th class="p-4 text-left">Thành tiền</th>
-              <th class="p-4 text-left">Ngày đặt hàng</th>
-              <th class="p-4 text-left">Thao tác</th>
-            </tr>
-          </thead>
-          <tbody id="order">
-            <!-- hiển thị dữ liệu -->
-          </tbody>
-        </table>
-        
-        <div class="grid grid-cols-3 gap-6 mt-8">
-          <div class="bg-gradient-to-br from-red-500 p-6 rounded-lg text-center">
-            <h3 class="font-semibold text-indigo-800">Instagram</h3>
-            <p class="text-gray-600">5.2k followers</p>
+        <div>
+            <h3>Biểu đồ doanh thu</h3>
+            <canvas id="revenueChart" width="400" height="200"></canvas>
           </div>
-          <div class="bg-blue-500 p-6 rounded-lg text-center">
-            <h3 class="font-semibold text-white-800">Facebook</h3>
-            <p class="text-gray-600">12k followers</p>
+          
+          <div>
+            <h3>Biểu đồ sản phẩm bán chạy</h3>
+            <canvas id="bestSellingChart" width="400" height="200"></canvas>
           </div>
-          <div class="bg-gradient-to-br from-blue-500 p-6 rounded-lg text-center">
-            <h3 class="font-semibold text-blue-800">Twitter</h3>
-            <p class="text-gray-600">3.8k followers</p>
+          
+          <div class="grid grid-cols-3 gap-6 mt-8">
+            <div class="bg-gradient-to-br from-red-500 p-6 rounded-lg text-center">
+              <h3 class="font-semibold text-indigo-800">Instagram</h3>
+              <p class="text-gray-600">5.2k followers</p>
+            </div>
+            <div class="bg-blue-500 p-6 rounded-lg text-center">
+              <h3 class="font-semibold text-white-800">Facebook</h3>
+              <p class="text-gray-600">12k followers</p>
+            </div>
+            <div class="bg-gradient-to-br from-blue-500 p-6 rounded-lg text-center">
+              <h3 class="font-semibold text-blue-800">Twitter</h3>
+              <p class="text-gray-600">3.8k followers</p>
+            </div>
           </div>
-        </div>
     </div>
   </div>
 
 </body>
-<script src="order.js" ></script>
+<script src="thongke.js" ></script>
 
 
 </html>

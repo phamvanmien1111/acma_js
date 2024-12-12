@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -32,7 +33,7 @@
                     <div class="dieuhuong">
                         <ul class="navbar-nav me-auto">
                             <li class="nav-item">
-                                <a class="nav-link" href="javascript:void(0)">Trang Chủ</a>
+                                <a class="nav-link" href="Trangchu.html">Trang Chủ</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="sanpham.html">Sản Phẩm</a>
@@ -141,25 +142,11 @@
             
         </aside>
         <main class="content">
-            <section class="intro">
-              <div class="intro-content">
-                  <img src="../img/slide.png" alt="" >
-                  <div class="text-overlay">
-                      <h1>Câu Chuyện Triệu Chữ Tâm</h1>
-                      <p>Thương hiệu NAKANO với sứ mệnh lan tỏa văn hóa trà Việt đến với người yêu trà toàn cầu.</p>
-                      <button class="intro-button">Tìm Hiểu Thêm</button>
-                  </div>
-              </div>
-          </section>
-            <section class="new-products">
-                <h2>SẢN PHẨM NAKANO MỚI NHẤT</h2>
-                <div class="slider">
-                  <button class="prev-btn" onclick="prevSlide()">❮</button>
-                <div class="product-list" id="sanpham">
-              </div>
-              <button class="next-btn" onclick="nextSlide()">❯</button>
-                </div>
-            </section>
+            <h2 class="text-xl">SẢN PHẨM BÌNH HOA</h2>
+            <div id="products" class="grid grid-cols-1 md:grid-cols-4 gap-8 pt-10"></div>
+            <!-- hiển thị -->
+            </div>
+            <script src="./script/category.js"></script>
             <div class="cach" style="height: 100px;"></div>
             <section class="relative text-black py-8 px-4 bg-cover bg-center" style="background-image: url('../img/1234.png');">
                 <div class="flex items-center justify-center rounded bg-gray-900 bg-opacity-60" style="height: 400px;">

@@ -1,5 +1,17 @@
-const urlParams = new URLSearchParams(window.location.search);
-const productId = urlParams.get('id');
+document.addEventListener("DOMContentLoaded", () => {
+    // Lấy giỏ hàng từ sessionStorage
+    const cartData = sessionStorage.getItem("cart");
+
+    if (cartData) {
+        const cart = JSON.parse(cartData);
+
+        // Hiển thị dữ liệu giỏ hàng trên trang thanh toán
+        renderCheckoutCart(cart);
+    } else {
+        document.getElementById("checkout-cart").innerHTML = 
+            "<p>Không có sản phẩm trong giỏ hàng để thanh toán.</p>";
+    }
+});
 async function fetchSanPhamDetails(productId) {
     try {
         // Lấy JSON từ product2

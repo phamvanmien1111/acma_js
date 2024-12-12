@@ -11,12 +11,16 @@ async function fetchSanPham() {
             return;
         }
 
-        displayProducts(productList); // Gọi hàm hiển thị sản phẩm
+        // lấy 8 sản phẩm 
+        const limitedProductList = productList.slice(0, 8);
+
+        // Gọi các hàm để hiển thị sản phẩm
+        displayProduct2(limitedProductList);
+        displayProducts(limitedProductList); 
     } catch (error) {
         console.error('Lỗi không thể tải JSON:', error.message);
     }
 }
-
 
 function displayProducts(products) {
     const productContainer = document.getElementById("products");
@@ -47,9 +51,8 @@ function displayProduct2(product2) {
             (product) => `
          <div class="text-center flex flex-col items-center">
             <img src="${product.image}" alt="${product.brand}" class="mx-auto mb-4 w-48 h-48 object-cover" />
-            <p class="font-semibold">${product.name}</p>
             <a href="${product.link}" class="text-lg font-semibold text-green-500">
-                ${product.brand}
+                ${product.name}
             </a>
             <p class="text-red-600 font-bold">${product.price}</p>
             <a href="${product.link}" class="px-4 py-2 bg-gray-700 text-white rounded-lg hover:bg-blue-800 transition-colors duration-300">Xem Chi Tiết</a>

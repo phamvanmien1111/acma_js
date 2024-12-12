@@ -74,7 +74,7 @@ window.addEventListener('DOMContentLoaded', () => {
 async function fetchSanPham() {
     try {
         // Fetch sản phẩm đầu
-        const responseProducts = await fetch('http://localhost:3000/products');
+        const responseProducts = await fetch('http://localhost:3000/product2');
         if (!responseProducts.ok) throw new Error(`Lỗi khi tải JSON products`);
         const products = await responseProducts.json();
         displayProducts(products);
@@ -100,11 +100,14 @@ function displayProducts(products) {
         productItem.className = 'product-item w-[180px] overflow-hidden';
         productItem.innerHTML = `
             <img
-                class="sanpham w-full block hover:scale-150 transition-transform duration-500"
-                src="${product.image_url}"  
+                class="sanpham w-full h-24 block hover:scale-150 transition-transform duration-500"
+                src="${product.image}"  
                 alt="${product.name}"      
             >
-            <p>${product.name}</p>         
+            <div class="h-16"></div>
+             <a href="chtietsanpham.html?id=${product.id}" class="text-lg font-semibold text-green-500">
+                ${product.title}
+            </a><br> 
             <span>${product.price}</span>
         `;
         productList.appendChild(productItem);
@@ -133,3 +136,4 @@ function displayProduct1(product1) {
 
 // Gọi hàm fetch sản phẩm
 fetchSanPham();
+

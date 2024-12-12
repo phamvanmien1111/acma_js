@@ -75,7 +75,7 @@
                 <form class="space-y-3">
                     <div>
                         <label class="block text-gray-700">Họ và Tên Liên Hệ:</label>
-                        <input type="text" class="w-full border border-gray-300 p-2 rounded">
+                        <input type="text" class="w-full border border-gray-300 p-2 rounded" placeholder="Họ và Tên">
                     </div>
                     <div>
                         <label class="block text-gray-700">Điện Thoại:</label>
@@ -88,7 +88,7 @@
                     <div>
                         <label class="block text-gray-700">Thành Phố:</label>
                         <input type="text" class="w-full border border-gray-300 p-2 rounded" placeholder="Thành Phố *">
-                    </div>
+                    </div>                    
                 </form>
             </div>
 
@@ -116,8 +116,6 @@
 </body>
 </html>
 <script>
-
-
 async function fetchSanPhamDetails(productId) {
     try {
         const responseProducts = await fetch('http://localhost:3000/product2');
@@ -161,7 +159,43 @@ function displayProductDetails(product) {
     `;
 }
 
+// Lấy giỏ hàng từ localStorage và cập nhật UI
+function renderCheckoutCart() {
+    const cart = JSON.parse(localStorage.getItem("cart") || "[]");  // Lấy giỏ hàng từ localStorage
+
+    const checkoutContainer = document.querySelector(".product-details");
+
+    if (!cart || cart.length === 0) {
+        checkoutContainer.innerHTML = "<p>Không có sản phẩm trong giỏ hàng để thanh toán.</p>";
+        return;
+    }
+
+    let html = "";
+    cart.forEach(item => {
+        html += `
+            <div class="border border-blue-500 rounded-lg p-4 mb-4">
+                <div class="flex items-center justify-between border-b pb-2 mb-2">
+                    <div class="flex items-center">
+                        <img src="${item.image}" alt="Sản phẩm" class="w-16 h-16 rounded mr-4">
+                        <div>
+                            <p class="font-semibold">${item.name}</p>
+                            <p class="text-gray-500 text-sm">LỰA CHỌN: A, Cốc Nhỏ</p>
+                        </div>
+                    </div>
+                    <p class="font-semibold">${item.price} VNĐ</p>
+                    <p>${item.quantity}</p>
+                    <p class="font-semibold">${item.price * item.quantity} VNĐ</p>
+                </div>
+            </div>
+        `;
+    });
+
+    checkoutContainer.innerHTML = html;
+}
+
 function thanhtoan() {
+    confirm("bạn muốn đặt hàng thật không");
+    // Lấy danh sách sản phẩm từ giao diện
     const productElements = document.querySelectorAll(".product-details .border");
     const products = Array.from(productElements).map(productEl => ({
         name: productEl.querySelector('.font-semibold').innerText.trim(),
@@ -170,12 +204,32 @@ function thanhtoan() {
         quantity: 1
     }));
 
+    // Thu thập thông tin khách hàng từ form
+    const customerName = document.querySelector('input[placeholder="Họ và Tên"]').value.trim();
+    const customerPhone = document.querySelector('input[placeholder="Điện Thoại *"]').value.trim();
+    const customerAddress = document.querySelector('input[placeholder="Địa Chỉ *"]').value.trim();
+    const customerCity = document.querySelector('input[placeholder="Thành Phố *"]').value.trim();
+
+    // Kiểm tra xem các thông tin bắt buộc đã được nhập chưa
+    if (!customerName || !customerPhone || !customerAddress || !customerCity) {
+        alert("Vui lòng điền đầy đủ thông tin khách hàng!");
+        return;
+    }
+
+    // Chuẩn bị dữ liệu đơn hàng
     const orderData = {
+        customer: {
+            name: customerName,
+            phone: customerPhone,
+            address: customerAddress,
+            city: customerCity
+        },
         products,
         totalPrice: products.reduce((total, product) => total + product.price * product.quantity, 0),
         orderDate: new Date().toISOString()
     };
 
+    // Gửi dữ liệu đơn hàng đến server
     fetch('http://localhost:3000/orders', {
         method: 'POST',
         headers: {
@@ -188,8 +242,12 @@ function thanhtoan() {
         return response.json();
     })
     .then(data => {
-    alert('Đặt hàng thành công!');
-    console.log('Đơn hàng đã được lưu:', data);
+        alert('Đặt hàng thành công!');
+        console.log('Đơn hàng đã được lưu:', data);
+
+        // Xóa giỏ hàng sau khi đặt hàng thành công
+        localStorage.removeItem("cart");
+        renderCheckoutCart();
     })
     .catch(error => {
         console.error('Lỗi khi đặt hàng:', error);
@@ -204,14 +262,8 @@ window.onload = function() {
     } else {
         console.log('Không có ID trong URL');
     }
+
+    renderCheckoutCart();  // Hiển thị giỏ hàng từ localStorage khi tải trang
 };
-
-
-// Chạy khi load trang
-if (productId) {
-    fetchSanPhamDetails(productId);
-} else {
-    console.log('Không có ID trong URL');
-}
 
 </script>

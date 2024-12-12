@@ -13,10 +13,13 @@ function loadCart() {
         cart = JSON.parse(storedCart);
     }
 }
-document.addEventListener("DOMContentLoaded", () => {
-    loadCart(); // Tải giỏ hàng từ localStorage
-    updateCartCount(); // Cập nhật số lượng trên icon
-    renderCart(); // Hiển thị giỏ hàng nếu có
+document.addEventListener('DOMContentLoaded', () => {
+    const savedCart = localStorage.getItem('cart');
+    if (savedCart) {
+        cart = JSON.parse(savedCart); // Tải dữ liệu giỏ hàng từ localStorage
+        updateCartCount();
+        renderCart(); // Hiển thị giỏ hàng nếu cần
+    }
 });
 
 
@@ -43,8 +46,8 @@ function addToCart(id, name, price, image) {
         cart.push({ id, name, price: parsedPrice, image, quantity: 1 });
     }
 
+    localStorage.setItem('cart', JSON.stringify(cart));
     updateCartCount();
-    saveCart(); // Lưu giỏ hàng vào localStorage
     alert(`Đã thêm ${name} vào giỏ hàng.`);
 }
 
@@ -115,8 +118,10 @@ const removeFromCart = id => {
     console.log("Trước khi xóa:", cart); // Kiểm tra giỏ hàng trước khi xóa
     cart = cart.filter(item => item.id != id); // Lọc bỏ sản phẩm có ID trùng khớp
     console.log("Sau khi xóa:", cart); // Kiểm tra giỏ hàng sau khi xóa
-    renderCart();
-    updateCartCount();
+
+    saveCart(); // Lưu trạng thái giỏ hàng mới vào localStorage
+    renderCart(); // Cập nhật giao diện giỏ hàng
+    updateCartCount(); // Cập nhật số lượng trên icon giỏ hàng
 };
 
 
@@ -126,10 +131,10 @@ document.addEventListener('click', (event) => {
         const button = event.target;
         const id = button.getAttribute('data-id');
         const name = button.getAttribute('data-name');
-        const price = button.getAttribute('data-price'); // Giá dạng chuỗi
+        const price = button.getAttribute('data-price'); 
         const image = button.getAttribute('data-image');
 
-        addToCart(id, name, price, image); // Giá sẽ được xử lý bên trong addToCart
+        addToCart(id, name, price, image); 
     }
 });
 
@@ -231,17 +236,22 @@ window.onload = function() {
 
 /////////////////
 document.addEventListener("DOMContentLoaded", () => {
-    fetch("http://localhost:3000/product2") // Thay đường dẫn thành API hoặc file JSON của bạn
-        .then(response => response.json())
-        .then(data => {
-            const productId = urlParams.get('id');
+    // Tải nút thanh toán
+    const checkoutButton = document.getElementById("checkout-button");
 
-            const checkoutButton = document.getElementById("checkout-button");
-            checkoutButton.addEventListener("click", () => {
-                window.location.href = `http://127.0.0.1:5500/site/thanhtoan.html?id=${productId}`;
-            });
-        })
-        .catch(error => {
-            // console.error("Lỗi khi lấy dữ liệu JSON:", error);
-        });
+    // Xử lý sự kiện khi nhấn nút thanh toán
+    checkoutButton.addEventListener("click", () => {
+        // Lấy toàn bộ giỏ hàng từ localStorage
+        const cartData = localStorage.getItem("cart");
+        
+        if (cartData) {
+            // Lưu giỏ hàng vào sessionStorage để truyền sang trang thanh toán
+            sessionStorage.setItem("cart", cartData);
+
+            // Điều hướng đến trang thanh toán
+            window.location.href = `http://127.0.0.1:5500/site/thanhtoan.html`;
+        } else {
+            alert("Giỏ hàng trống, không thể thanh toán!");
+        }
+    });
 });
